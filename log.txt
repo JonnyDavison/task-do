@@ -1,0 +1,377 @@
+-----> Building on the Heroku-22 stack
+-----> Using buildpack: heroku/python
+-----> Python app detected
+-----> No Python version was specified. Using the same version as the last build: python-3.11.3
+       To use a different version, see: https://devcenter.heroku.com/articles/python-runtimes
+ !     
+ !     A Python security update is available! Upgrade as soon as possible to: python-3.11.4
+ !     See: https://devcenter.heroku.com/articles/python-runtimes
+ !     
+-----> Requirements file has been changed, clearing cached dependencies
+-----> Installing python-3.11.3
+-----> Installing pip 23.1.2, setuptools 67.8.0 and wheel 0.40.0
+-----> Installing SQLite3
+-----> Installing requirements with pip
+       Collecting click==8.0.1 (from -r requirements.txt (line 1))
+         Downloading click-8.0.1-py3-none-any.whl (97 kB)
+       Collecting Flask==2.0.1 (from -r requirements.txt (line 2))
+         Downloading Flask-2.0.1-py3-none-any.whl (94 kB)
+       Collecting Flask-SQLAlchemy==2.5.1 (from -r requirements.txt (line 3))
+         Downloading Flask_SQLAlchemy-2.5.1-py2.py3-none-any.whl (17 kB)
+       Collecting greenlet==1.1.0 (from -r requirements.txt (line 4))
+         Downloading greenlet-1.1.0.tar.gz (85 kB)
+         Preparing metadata (setup.py): started
+         Preparing metadata (setup.py): finished with status 'done'
+       Collecting itsdangerous==2.0.1 (from -r requirements.txt (line 5))
+         Downloading itsdangerous-2.0.1-py3-none-any.whl (18 kB)
+       Collecting Jinja2==3.0.1 (from -r requirements.txt (line 6))
+         Downloading Jinja2-3.0.1-py3-none-any.whl (133 kB)
+       Collecting MarkupSafe==2.0.1 (from -r requirements.txt (line 7))
+         Downloading MarkupSafe-2.0.1.tar.gz (18 kB)
+         Preparing metadata (setup.py): started
+         Preparing metadata (setup.py): finished with status 'done'
+       Collecting psycopg2==2.9.1 (from -r requirements.txt (line 8))
+         Downloading psycopg2-2.9.1.tar.gz (379 kB)
+         Preparing metadata (setup.py): started
+         Preparing metadata (setup.py): finished with status 'done'
+       Collecting SQLAlchemy==1.4.18 (from -r requirements.txt (line 9))
+         Downloading SQLAlchemy-1.4.18.tar.gz (7.6 MB)
+         Preparing metadata (setup.py): started
+         Preparing metadata (setup.py): finished with status 'done'
+       Collecting Werkzeug==2.0.1 (from -r requirements.txt (line 10))
+         Downloading Werkzeug-2.0.1-py3-none-any.whl (288 kB)
+       Building wheels for collected packages: greenlet, MarkupSafe, psycopg2, SQLAlchemy
+         Building wheel for greenlet (setup.py): started
+         Building wheel for greenlet (setup.py): finished with status 'error'
+         error: subprocess-exited-with-error
+         
+         × python setup.py bdist_wheel did not run successfully.
+         │ exit code: 1
+         ╰─> [308 lines of output]
+             running bdist_wheel
+             running build
+             running build_py
+             creating build
+             creating build/lib.linux-x86_64-cpython-311
+             creating build/lib.linux-x86_64-cpython-311/greenlet
+             copying src/greenlet/__init__.py -> build/lib.linux-x86_64-cpython-311/greenlet
+             creating build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_cpp.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_generator_nested.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_extension_interface.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_leaks.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_throw.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_stack_saved.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_tracing.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_generator.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_weakref.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_version.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/__init__.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_greenlet.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_gc.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/test_contextvars.py -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             running egg_info
+             writing src/greenlet.egg-info/PKG-INFO
+             writing dependency_links to src/greenlet.egg-info/dependency_links.txt
+             writing requirements to src/greenlet.egg-info/requires.txt
+             writing top-level names to src/greenlet.egg-info/top_level.txt
+             reading manifest file 'src/greenlet.egg-info/SOURCES.txt'
+             reading manifest template 'MANIFEST.in'
+             no previously-included directories found matching 'docs/_build'
+             warning: no files found matching '*.py' under directory 'appveyor'
+             adding license file 'LICENSE'
+             adding license file 'LICENSE.PSF'
+             adding license file 'AUTHORS'
+             writing manifest file 'src/greenlet.egg-info/SOURCES.txt'
+             /app/.heroku/python/lib/python3.11/site-packages/setuptools/command/build_py.py:201: _Warning: Package 'greenlet.platform' is absent from the `packages` configuration.
+             !!
+             
+                     ********************************************************************************
+                     ############################
+                     # Package would be ignored #
+                     ############################
+                     Python recognizes 'greenlet.platform' as an importable package[^1],
+                     but it is absent from setuptools' `packages` configuration.
+             
+                     This leads to an ambiguous overall configuration. If you want to distribute this
+                     package, please make sure that 'greenlet.platform' is explicitly added
+                     to the `packages` configuration field.
+             
+                     Alternatively, you can also rely on setuptools' discovery methods
+                     (for example by using `find_namespace_packages(...)`/`find_namespace:`
+                     instead of `find_packages(...)`/`find:`).
+             
+                     You can read more about "package discovery" on setuptools documentation page:
+             
+                     - https://setuptools.pypa.io/en/latest/userguide/package_discovery.html
+             
+                     If you don't want 'greenlet.platform' to be distributed and are
+                     already explicitly excluding 'greenlet.platform' via
+                     `find_namespace_packages(...)/find_namespace` or `find_packages(...)/find`,
+                     you can try to use `exclude_package_data`, or `include-package-data=False` in
+                     combination with a more fine grained `package-data` configuration.
+             
+                     You can read more about "package data files" on setuptools documentation page:
+             
+                     - https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+             
+             
+                     [^1]: For Python, any directory (with suitable naming) can be imported,
+                           even if it does not contain any `.py` files.
+                           On the other hand, currently there is no concept of package data
+                           directory, all directories are treated like packages.
+                     ********************************************************************************
+             
+             !!
+               check.warn(importable)
+             copying src/greenlet/greenlet.c -> build/lib.linux-x86_64-cpython-311/greenlet
+             copying src/greenlet/greenlet.h -> build/lib.linux-x86_64-cpython-311/greenlet
+             copying src/greenlet/slp_platformselect.h -> build/lib.linux-x86_64-cpython-311/greenlet
+             creating build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/setup_switch_x64_masm.cmd -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_aarch64_gcc.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_alpha_unix.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_amd64_unix.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_arm32_gcc.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_arm32_ios.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_csky_gcc.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_m68k_gcc.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_mips_unix.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_ppc64_aix.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_ppc64_linux.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_ppc_aix.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_ppc_linux.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_ppc_macosx.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_ppc_unix.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_riscv_unix.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_s390_unix.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_sparc_sun_gcc.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_x32_unix.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_x64_masm.asm -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_x64_masm.obj -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_x64_msvc.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_x86_msvc.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/platform/switch_x86_unix.h -> build/lib.linux-x86_64-cpython-311/greenlet/platform
+             copying src/greenlet/tests/_test_extension.c -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             copying src/greenlet/tests/_test_extension_cpp.cpp -> build/lib.linux-x86_64-cpython-311/greenlet/tests
+             running build_ext
+             building 'greenlet._greenlet' extension
+             creating build/temp.linux-x86_64-cpython-311
+             creating build/temp.linux-x86_64-cpython-311/src
+             creating build/temp.linux-x86_64-cpython-311/src/greenlet
+             gcc -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/app/.heroku/python/include/python3.11 -c src/greenlet/greenlet.c -o build/temp.linux-x86_64-cpython-311/src/greenlet/greenlet.o
+             In file included from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.h:42:5: error: unknown type name ‘CFrame’
+                42 |     CFrame* cframe;
+                   |     ^~~~~~
+             src/greenlet/greenlet.c: In function ‘green_clear_exc’:
+             src/greenlet/greenlet.c:168:17: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_type’
+               168 |     g->exc_state.exc_type = NULL;
+                   |                 ^
+             src/greenlet/greenlet.c:170:17: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_traceback’
+               170 |     g->exc_state.exc_traceback = NULL;
+                   |                 ^
+             src/greenlet/greenlet.c: In function ‘g_switchstack’:
+             src/greenlet/greenlet.c:508:44: error: ‘PyThreadState’ {aka ‘struct _ts’} has no member named ‘recursion_depth’; did you mean ‘recursion_limit’?
+               508 |         current->recursion_depth = tstate->recursion_depth;
+                   |                                            ^~~~~~~~~~~~~~~
+                   |                                            recursion_limit
+             src/greenlet/greenlet.c:509:38: error: ‘PyThreadState’ {aka ‘struct _ts’} has no member named ‘frame’; did you mean ‘cframe’?
+               509 |         current->top_frame = tstate->frame;
+                   |                                      ^~~~~
+                   |                                      cframe
+             src/greenlet/greenlet.c:522:25: warning: assignment to ‘int *’ from incompatible pointer type ‘_PyCFrame *’ [-Wincompatible-pointer-types]
+               522 |         current->cframe = tstate->cframe;
+                   |                         ^
+             src/greenlet/greenlet.c:544:17: error: ‘PyThreadState’ {aka ‘struct _ts’} has no member named ‘recursion_depth’; did you mean ‘recursion_limit’?
+               544 |         tstate->recursion_depth = target->recursion_depth;
+                   |                 ^~~~~~~~~~~~~~~
+                   |                 recursion_limit
+             src/greenlet/greenlet.c:545:17: error: ‘PyThreadState’ {aka ‘struct _ts’} has no member named ‘frame’; did you mean ‘cframe’?
+               545 |         tstate->frame = target->top_frame;
+                   |                 ^~~~~
+                   |                 cframe
+             src/greenlet/greenlet.c:568:24: warning: assignment to ‘_PyCFrame *’ from incompatible pointer type ‘int *’ [-Wincompatible-pointer-types]
+               568 |         tstate->cframe = target->cframe;
+                   |                        ^
+             src/greenlet/greenlet.c: In function ‘g_initialstub’:
+             src/greenlet/greenlet.c:821:50: error: ‘PyThreadState’ {aka ‘struct _ts’} has no member named ‘recursion_depth’; did you mean ‘recursion_limit’?
+               821 |     self->recursion_depth = PyThreadState_GET()->recursion_depth;
+                   |                                                  ^~~~~~~~~~~~~~~
+                   |                                                  recursion_limit
+             src/greenlet/greenlet.c: In function ‘green_new’:
+             src/greenlet/greenlet.c:921:34: warning: assignment to ‘int *’ from incompatible pointer type ‘_PyCFrame *’ [-Wincompatible-pointer-types]
+               921 |         ((PyGreenlet*)o)->cframe = &PyThreadState_GET()->root_cframe;
+                   |                                  ^
+             In file included from /app/.heroku/python/include/python3.11/Python.h:45,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c: In function ‘green_traverse’:
+             src/greenlet/greenlet.c:1021:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_type’
+              1021 |     Py_VISIT(self->exc_state.exc_type);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/objimpl.h:199:13: note: in definition of macro ‘Py_VISIT’
+               199 |         if (op) {                                                       \
+                   |             ^~
+             In file included from /app/.heroku/python/include/python3.11/Python.h:38,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c:1021:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_type’
+              1021 |     Py_VISIT(self->exc_state.exc_type);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/pyport.h:24:38: note: in definition of macro ‘_Py_CAST’
+                24 | #define _Py_CAST(type, expr) ((type)(expr))
+                   |                                      ^~~~
+             /app/.heroku/python/include/python3.11/objimpl.h:200:30: note: in expansion of macro ‘_PyObject_CAST’
+               200 |             int vret = visit(_PyObject_CAST(op), arg);                  \
+                   |                              ^~~~~~~~~~~~~~
+             src/greenlet/greenlet.c:1021:5: note: in expansion of macro ‘Py_VISIT’
+              1021 |     Py_VISIT(self->exc_state.exc_type);
+                   |     ^~~~~~~~
+             In file included from /app/.heroku/python/include/python3.11/Python.h:45,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c:1023:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_traceback’
+              1023 |     Py_VISIT(self->exc_state.exc_traceback);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/objimpl.h:199:13: note: in definition of macro ‘Py_VISIT’
+               199 |         if (op) {                                                       \
+                   |             ^~
+             In file included from /app/.heroku/python/include/python3.11/Python.h:38,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c:1023:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_traceback’
+              1023 |     Py_VISIT(self->exc_state.exc_traceback);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/pyport.h:24:38: note: in definition of macro ‘_Py_CAST’
+                24 | #define _Py_CAST(type, expr) ((type)(expr))
+                   |                                      ^~~~
+             /app/.heroku/python/include/python3.11/objimpl.h:200:30: note: in expansion of macro ‘_PyObject_CAST’
+               200 |             int vret = visit(_PyObject_CAST(op), arg);                  \
+                   |                              ^~~~~~~~~~~~~~
+             src/greenlet/greenlet.c:1023:5: note: in expansion of macro ‘Py_VISIT’
+              1023 |     Py_VISIT(self->exc_state.exc_traceback);
+                   |     ^~~~~~~~
+             src/greenlet/greenlet.c: In function ‘green_clear’:
+             src/greenlet/greenlet.c:1059:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_type’
+              1059 |     Py_CLEAR(self->exc_state.exc_type);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/pyport.h:24:38: note: in definition of macro ‘_Py_CAST’
+                24 | #define _Py_CAST(type, expr) ((type)(expr))
+                   |                                      ^~~~
+             /app/.heroku/python/include/python3.11/object.h:581:29: note: in expansion of macro ‘_PyObject_CAST’
+               581 |         PyObject *_py_tmp = _PyObject_CAST(op); \
+                   |                             ^~~~~~~~~~~~~~
+             src/greenlet/greenlet.c:1059:5: note: in expansion of macro ‘Py_CLEAR’
+              1059 |     Py_CLEAR(self->exc_state.exc_type);
+                   |     ^~~~~~~~
+             In file included from /app/.heroku/python/include/python3.11/Python.h:44,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c:1059:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_type’
+              1059 |     Py_CLEAR(self->exc_state.exc_type);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/object.h:583:14: note: in definition of macro ‘Py_CLEAR’
+               583 |             (op) = NULL;                        \
+                   |              ^~
+             In file included from /app/.heroku/python/include/python3.11/Python.h:38,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c:1061:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_traceback’
+              1061 |     Py_CLEAR(self->exc_state.exc_traceback);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/pyport.h:24:38: note: in definition of macro ‘_Py_CAST’
+                24 | #define _Py_CAST(type, expr) ((type)(expr))
+                   |                                      ^~~~
+             /app/.heroku/python/include/python3.11/object.h:581:29: note: in expansion of macro ‘_PyObject_CAST’
+               581 |         PyObject *_py_tmp = _PyObject_CAST(op); \
+                   |                             ^~~~~~~~~~~~~~
+             src/greenlet/greenlet.c:1061:5: note: in expansion of macro ‘Py_CLEAR’
+              1061 |     Py_CLEAR(self->exc_state.exc_traceback);
+                   |     ^~~~~~~~
+             In file included from /app/.heroku/python/include/python3.11/Python.h:44,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c:1061:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_traceback’
+              1061 |     Py_CLEAR(self->exc_state.exc_traceback);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/object.h:583:14: note: in definition of macro ‘Py_CLEAR’
+               583 |             (op) = NULL;                        \
+                   |              ^~
+             In file included from /app/.heroku/python/include/python3.11/Python.h:38,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c: In function ‘green_dealloc’:
+             src/greenlet/greenlet.c:1139:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_type’
+              1139 |     Py_CLEAR(self->exc_state.exc_type);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/pyport.h:24:38: note: in definition of macro ‘_Py_CAST’
+                24 | #define _Py_CAST(type, expr) ((type)(expr))
+                   |                                      ^~~~
+             /app/.heroku/python/include/python3.11/object.h:581:29: note: in expansion of macro ‘_PyObject_CAST’
+               581 |         PyObject *_py_tmp = _PyObject_CAST(op); \
+                   |                             ^~~~~~~~~~~~~~
+             src/greenlet/greenlet.c:1139:5: note: in expansion of macro ‘Py_CLEAR’
+              1139 |     Py_CLEAR(self->exc_state.exc_type);
+                   |     ^~~~~~~~
+             In file included from /app/.heroku/python/include/python3.11/Python.h:44,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c:1139:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_type’
+              1139 |     Py_CLEAR(self->exc_state.exc_type);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/object.h:583:14: note: in definition of macro ‘Py_CLEAR’
+               583 |             (op) = NULL;                        \
+                   |              ^~
+             In file included from /app/.heroku/python/include/python3.11/Python.h:38,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c:1141:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_traceback’
+              1141 |     Py_CLEAR(self->exc_state.exc_traceback);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/pyport.h:24:38: note: in definition of macro ‘_Py_CAST’
+                24 | #define _Py_CAST(type, expr) ((type)(expr))
+                   |                                      ^~~~
+             /app/.heroku/python/include/python3.11/object.h:581:29: note: in expansion of macro ‘_PyObject_CAST’
+               581 |         PyObject *_py_tmp = _PyObject_CAST(op); \
+                   |                             ^~~~~~~~~~~~~~
+             src/greenlet/greenlet.c:1141:5: note: in expansion of macro ‘Py_CLEAR’
+              1141 |     Py_CLEAR(self->exc_state.exc_traceback);
+                   |     ^~~~~~~~
+             In file included from /app/.heroku/python/include/python3.11/Python.h:44,
+                              from src/greenlet/greenlet.h:8,
+                              from src/greenlet/greenlet.c:11:
+             src/greenlet/greenlet.c:1141:29: error: ‘_PyErr_StackItem’ {aka ‘struct _err_stackitem’} has no member named ‘exc_traceback’
+              1141 |     Py_CLEAR(self->exc_state.exc_traceback);
+                   |                             ^
+             /app/.heroku/python/include/python3.11/object.h:583:14: note: in definition of macro ‘Py_CLEAR’
+               583 |             (op) = NULL;                        \
+                   |              ^~
+             src/greenlet/greenlet.c: In function ‘PyGreenlet_New’:
+             src/greenlet/greenlet.c:1653:15: warning: assignment to ‘int *’ from incompatible pointer type ‘_PyCFrame *’ [-Wincompatible-pointer-types]
+              1653 |     g->cframe = &PyThreadState_GET()->root_cframe;
+                   |               ^
+             error: command '/usr/bin/gcc' failed with exit code 1
+             [end of output]
+         
+         note: This error originates from a subprocess, and is likely not a problem with pip.
+         ERROR: Failed building wheel for greenlet
+         Running setup.py clean for greenlet
+         Building wheel for MarkupSafe (setup.py): started
+         Building wheel for MarkupSafe (setup.py): finished with status 'done'
+         Created wheel for MarkupSafe: filename=MarkupSafe-2.0.1-cp311-cp311-linux_x86_64.whl size=14753 sha256=10f97fd487b90baa453b4fdc5235136c196ff9e1792515a29e3b74783078c646
+         Stored in directory: /tmp/pip-ephem-wheel-cache-afm4y6dz/wheels/ea/18/79/6266ea508b8164a77b95aa19534c77eb805f2878612c37efca
+         Building wheel for psycopg2 (setup.py): started
+         Building wheel for psycopg2 (setup.py): finished with status 'done'
+         Created wheel for psycopg2: filename=psycopg2-2.9.1-cp311-cp311-linux_x86_64.whl size=159178 sha256=11614e7536d0d1972dfbe154045f0c177717d459e4e92d98ff16d81f6fdfbb4c
+         Stored in directory: /tmp/pip-ephem-wheel-cache-afm4y6dz/wheels/16/15/95/9d3fc2f4ee570415fce4878d47c9e104a54f69bd563067b8ff
+         Building wheel for SQLAlchemy (setup.py): started
+         Building wheel for SQLAlchemy (setup.py): finished with status 'done'
+         Created wheel for SQLAlchemy: filename=SQLAlchemy-1.4.18-cp311-cp311-linux_x86_64.whl size=1481616 sha256=67e1aaa75371bb6a314dfe50d2b343b166efa21f1f16d0fd696a7d530bbc6e6a
+         Stored in directory: /tmp/pip-ephem-wheel-cache-afm4y6dz/wheels/7e/72/a5/ccf14c7157456d1d8fea9a1ec026ed4d8cd4fbbde87c434b89
+       Successfully built MarkupSafe psycopg2 SQLAlchemy
+       Failed to build greenlet
+       ERROR: Could not build wheels for greenlet, which is required to install pyproject.toml-based projects
+ !     Push rejected, failed to compile Python app.
+ !     Push failed
+ 
